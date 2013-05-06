@@ -1,0 +1,9 @@
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/.idea/*
+/web/.htaccess
+/backups
+/backups/

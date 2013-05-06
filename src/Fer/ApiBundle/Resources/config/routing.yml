@@ -1,0 +1,3 @@
+fer_api_homepage:
+    pattern:  /hola/{name}
+    defaults: { _controller: FerApiBundle:Default:index, _format: json }

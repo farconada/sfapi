@@ -1,0 +1,7 @@
+parameters:
+#    fer_api.example.class: Fer\ApiBundle\Example
+
+services:
+#    fer_api.example:
+#        class: %fer_api.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
