@@ -1,3 +1,17 @@
-fer_api_homepage:
-    pattern:  /hola/{name}
-    defaults: { _controller: FerApiBundle:Default:index, _format: json }
+fer_api_libre:
+    prefix: 'libre'
+    type: rest
+    resource: Fer\ApiBundle\Controller\DefaultController
+    defaults: { _format: json }
+
+fer_api_basic:
+    prefix: 'basic'
+    type: rest
+    resource: Fer\ApiBundle\Controller\BasicController
+    defaults: { _format: json }
+
+fer_api_oauth:
+    prefix: 'oauth'
+    type: rest
+    resource: Fer\ApiBundle\Controller\OAuthController
+    defaults: { _format: json }

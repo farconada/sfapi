@@ -69,6 +69,7 @@ fos_rest:
     param_fetcher_listener: false
     routing_loader:
         default_format: json
+        include_format:       false
     view:
         view_response_listener: false
         failed_validation: HTTP_BAD_REQUEST
@@ -79,7 +80,9 @@ fos_rest:
             xml: false
             html: false
     format_listener: false
-    body_listener: true
+    body_listener:
+       decoders:
+           json: fos_rest.decoder.json
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

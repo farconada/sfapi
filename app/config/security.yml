@@ -27,19 +27,24 @@ security:
             pattern:    ^/oauth/v2/token
             security:   false
         api:
-            pattern:    ^/api
+            pattern:    ^/api/oauth
             fos_oauth:  true
             stateless:  true
+        secured_area:
+            pattern:    ^/api/basic
+            anonymous: ~
+            http_basic:
+                realm: "Demo Http basic"
         main:
             pattern:    ^/
-            fos_facebook:
-                app_url: "http://apps.facebook.com/appName/"
-                server_url: "http://localhost/facebookApp/"
-                provider: my_fos_facebook_provider
-                login_path: fos_user_security_login
-                check_path: /facebook/login_check
-                check_path: fos_facebook_security_check
-                default_target_path: /
+#            fos_facebook:
+#                app_url: "http://apps.facebook.com/appName/"
+#                server_url: "http://localhost/facebookApp/"
+#                provider: my_fos_facebook_provider
+#                login_path: fos_user_security_login
+#                check_path: /facebook/login_check
+#                check_path: fos_facebook_security_check
+#                default_target_path: /
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
@@ -53,6 +58,8 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/api/libre, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/basic, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/api/oauth, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/oauth/v2/auth, roles: [ IS_AUTHENTICATED_FULLY ] }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

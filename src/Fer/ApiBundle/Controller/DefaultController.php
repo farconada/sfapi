@@ -2,13 +2,11 @@
 
 namespace Fer\ApiBundle\Controller;
 
-use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\Annotations\NamePrefix;
 
-class DefaultController extends FOSRestController
+/**
+ * @NamePrefix("api_libre_")
+ */
+class DefaultController extends BaseController
 {
-    public function indexAction($name)
-    {
-        $view = $this->view('Hola ' . $name, 200);
-        return $this->handleView($view);
-    }
 }
