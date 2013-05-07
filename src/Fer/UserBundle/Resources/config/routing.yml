@@ -1,3 +1,7 @@
 fer_user_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: FerUserBundle:Default:index }
+
+fer_facebook_security_check:
+    pattern: /facebook/login_check
+    defaults: { _controller: FerUserBundle:Default:fbLoginCheck }

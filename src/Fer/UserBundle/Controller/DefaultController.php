@@ -10,4 +10,13 @@ class DefaultController extends Controller
     {
         return $this->render('FerUserBundle:Default:index.html.twig', array('name' => $name));
     }
+
+	/**
+	 * This method is only here to check the permissions for the facebook firewall
+	 * Don't delete - it's supposed to be empty
+	 */
+	public function fbLoginCheckAction()
+	{
+		return $this->render('FerUserBundle:Default:index.html.twig', array('name' => 'login'));
+	}
 }

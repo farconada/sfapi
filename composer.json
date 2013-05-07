@@ -22,7 +22,8 @@
 	"friendsofsymfony/oauth-server-bundle": "dev-master",
 	"friendsofsymfony/rest-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/facebook-bundle": "1.1.*"
     },
     "scripts": {
         "post-install-cmd": [

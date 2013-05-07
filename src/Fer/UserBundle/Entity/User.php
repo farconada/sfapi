@@ -30,4 +30,59 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
+	 */
+	protected $facebookId;
+
+	public function serialize()
+	{
+		return serialize(array($this->facebookId, parent::serialize()));
+	}
+
+	public function unserialize($data)
+	{
+		list($this->facebookId, $parentData) = unserialize($data);
+		parent::unserialize($parentData);
+	}
+
+	/**
+	 * @param string $facebookId
+	 * @return void
+	 */
+	public function setFacebookId($facebookId)
+	{
+		$this->facebookId = $facebookId;
+		$this->setUsername($facebookId);
+		$this->salt = '';
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFacebookId()
+	{
+		return $this->facebookId;
+	}
+
+	/**
+	 * @param Array
+	 */
+	public function setFBData($fbdata)
+	{
+		if (isset($fbdata['id'])) {
+			$this->setFacebookId($fbdata['id']);
+			$this->addRole('ROLE_FACEBOOK');
+		}
+
+		if (isset($fbdata['email'])) {
+			$this->setEmail($fbdata['email']);
+		}
+	}
+
+
+
 }

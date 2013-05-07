@@ -94,3 +94,10 @@ fos_oauth_server:
     auth_code_class:     Fer\ApiBundle\Entity\AuthCode
     service:
       user_provider: fos_user.user_manager
+
+fos_facebook:
+  alias:  facebook
+  app_id: 128495600545086
+  secret: 9ca82863b703320f317e121a0617d99d
+  cookie: true
+  permissions: [email, user_birthday, user_location]
