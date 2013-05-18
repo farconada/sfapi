@@ -15,3 +15,4 @@ fer_api_oauth:
     type: rest
     resource: Fer\ApiBundle\Controller\OAuthController
     defaults: { _format: json }
+
