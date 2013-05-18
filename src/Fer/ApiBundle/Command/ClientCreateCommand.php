@@ -14,6 +14,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Fer\ApiBundle\Entity\Client;
 
 class ClientCreateCommand extends ContainerAwareCommand
 {
@@ -35,10 +36,14 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
+        /**
+         * @var $client Client
+         */
         $client = $clientManager->createClient();
         $client->setRedirectUris($input->getOption('redirect-uri'));
-        $client->setAllowedGrantTypes(array('token', 'authorization_code'));
+        $client->setAllowedGrantTypes(array('token', 'authorization_code','refresh_token'));
         $clientManager->updateClient($client);
         $output->writeln(sprintf('Added a new client with public id <info>%s</info>.', $client->getPublicId()));
+        $output->writeln(sprintf('Added a new client with secret code <info>%s</info>.', $client->getSecret()));
     }
 }
