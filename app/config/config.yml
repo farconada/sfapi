@@ -66,10 +66,10 @@ swiftmailer:
     spool:     { type: memory }
 
 fos_rest:
-    param_fetcher_listener: false
+    param_fetcher_listener: true
     routing_loader:
         default_format: json
-        include_format:       false
+        include_format: false
     view:
         view_response_listener: false
         failed_validation: HTTP_BAD_REQUEST
