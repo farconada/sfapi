@@ -28,3 +28,9 @@ fer_api_libre_mensaje:
     resource: Fer\ApiBundle\Controller\MensajeController
     defaults: { _format: json }
 
+fer_api_libre_mensaje:
+    prefix: 'wsse'
+    type: rest
+    resource: Fer\ApiBundle\Controller\WsseController
+    defaults: { _format: json }
+

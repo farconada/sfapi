@@ -104,3 +104,7 @@ fos_facebook:
   secret: 9ca82863b703320f317e121a0617d99d
   cookie: true
   permissions: [email, user_birthday, user_location]
+
+escape_wsse_authentication:
+  authentication_provider_class: Escape\WSSEAuthenticationBundle\Security\Core\Authentication\Provider\Provider
+  authentication_listener_class: Escape\WSSEAuthenticationBundle\Security\Http\Firewall\Listener

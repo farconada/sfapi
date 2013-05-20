@@ -35,6 +35,11 @@ security:
             anonymous: ~
             http_basic:
                 realm: "Demo Http basic"
+        wsse_secured:
+            pattern:   ^/api/wsse
+            stateless:    true
+            provider: fos_userbundle
+            wsse:      { nonce_dir: null, lifetime: 3000, realm: "Demo API", profile: UsernameToken }
         main:
             pattern:    ^/
 #            fos_facebook:
@@ -52,8 +57,6 @@ security:
                 check_path: fos_user_security_check
             logout:       true
             anonymous:    true
-
-
 
 
     access_control:
