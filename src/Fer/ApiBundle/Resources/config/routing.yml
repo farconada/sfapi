@@ -16,19 +16,8 @@ fer_api_oauth:
     resource: Fer\ApiBundle\Controller\OAuthController
     defaults: { _format: json }
 
-fer_api_oauth_mensaje:
-    prefix: 'oauth'
-    type: rest
-    resource: Fer\ApiBundle\Controller\MensajeController
-    defaults: { _format: json }
 
-fer_api_libre_mensaje:
-    prefix: 'libre'
-    type: rest
-    resource: Fer\ApiBundle\Controller\MensajeController
-    defaults: { _format: json }
-
-fer_api_libre_mensaje:
+fer_api_wsse:
     prefix: 'wsse'
     type: rest
     resource: Fer\ApiBundle\Controller\WsseController
