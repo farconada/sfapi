@@ -17,6 +17,7 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fer\ApiBundle\Entity\MensajeRepository")
  */
 class Mensaje {
 

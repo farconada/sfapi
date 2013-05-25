@@ -69,7 +69,7 @@ class BaseController extends FOSRestController {
 
     public function getMensajesAction(){
         $mensajesRepository = $this->getRepository('FerApiBundle:Mensaje');
-        $mensajes = $mensajesRepository->findAll();
+        $mensajes = $mensajesRepository->findLatests();
 
         $view = $this->view($mensajes, 200);
         return $this->handleView($view);
