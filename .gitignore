@@ -1,6 +1,8 @@
 /web/bundles/
 /app/bootstrap*
 /app/cache/*
+/app/database.db
+/app/config/parameters.yml
 /app/logs/*
 /vendor/
 /.idea/*
