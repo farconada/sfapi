@@ -41,7 +41,7 @@ EOT
          */
         $client = $clientManager->createClient();
         $client->setRedirectUris($input->getOption('redirect-uri'));
-        $client->setAllowedGrantTypes(array('token', 'authorization_code','refresh_token'));
+        $client->setAllowedGrantTypes(array('token', 'authorization_code','refresh_token','client_credentials','password'));
         $clientManager->updateClient($client);
         $output->writeln(sprintf('Added a new client with public id <info>%s</info>.', $client->getPublicId()));
         $output->writeln(sprintf('Added a new client with secret code <info>%s</info>.', $client->getSecret()));
