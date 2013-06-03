@@ -57,11 +57,10 @@ class BaseController extends FOSRestController {
      * @RequestParam(name="mensaje")
      */
     public function postMensajeAction(Mensaje $mensaje){
-	    //var_dump($mensaje);
-        /*$mensaje->setFecha(new \DateTime());
+        $mensaje->setFecha(new \DateTime());
         $mensaje->setUser($this->getLoggedUser());
         $this->getEntityManager()->persist($mensaje);
-        $this->getEntityManager()->flush();*/
+        $this->getEntityManager()->flush();
         $view = $this->view(array('msg' => 'hecho'), 200);
         return $this->handleView($view);
     }
