@@ -10,8 +10,9 @@
 namespace Fer\ApiBundle\Controller;
 use Fer\ApiBundle\Entity\Mensaje;
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations\RequestParam;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use FOS\RestBundle\Controller\Annotations\RequestParam;
 
 class Model {
     public $nombre;
@@ -52,17 +53,15 @@ class BaseController extends FOSRestController {
     }
 
     /**
+     * @ParamConverter("mensaje", converter="fos_rest.request_body")
      * @RequestParam(name="mensaje")
-     * @param  Request $request
      */
-    public function postMensajeAction(Request $request){
-        $msgParam = $this->getRequest()->request->get('mensaje',array());
-        $msg = new Mensaje();
-        $msg->setFecha(new \DateTime());
-        $msg->setTexto($msgParam['texto']);
-        $msg->setUser($this->getLoggedUser());
-        $this->getEntityManager()->persist($msg);
-        $this->getEntityManager()->flush();
+    public function postMensajeAction(Mensaje $mensaje){
+	    //var_dump($mensaje);
+        /*$mensaje->setFecha(new \DateTime());
+        $mensaje->setUser($this->getLoggedUser());
+        $this->getEntityManager()->persist($mensaje);
+        $this->getEntityManager()->flush();*/
         $view = $this->view(array('msg' => 'hecho'), 200);
         return $this->handleView($view);
     }

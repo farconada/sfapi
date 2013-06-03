@@ -79,6 +79,7 @@ fos_rest:
             rss: false
             xml: false
             html: false
+    body_converter: true
     format_listener: false
     body_listener:
        decoders:
@@ -108,3 +109,6 @@ fos_facebook:
 escape_wsse_authentication:
   authentication_provider_class: Escape\WSSEAuthenticationBundle\Security\Core\Authentication\Provider\Provider
   authentication_listener_class: Escape\WSSEAuthenticationBundle\Security\Http\Firewall\Listener
+
+sensio_framework_extra:
+  request: { converters: true }
