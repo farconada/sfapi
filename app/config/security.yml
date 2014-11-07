@@ -39,7 +39,7 @@ security:
             pattern:   ^/api/wsse
             stateless:    true
             provider: fos_userbundle
-            wsse:      { nonce_dir: null, lifetime: 3000, realm: "Demo API", profile: UsernameToken }
+            wsse:      { lifetime: 3000, realm: "Demo API", profile: UsernameToken }
         main:
             pattern:    ^/
 #            fos_facebook:
